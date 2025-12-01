@@ -3,16 +3,23 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Post;
 
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
+ */
 class PostFactory extends Factory
 {
+    protected $model = Post::class;
+
     public function definition(): array
     {
         return [
-            'title'   => $this->faker->sentence(),
-            'content' => $this->faker->paragraph(5),
-            'author'  => $this->faker->name(),
-            'icon'    => 'fas fa-file-alt', // default icon (optional)
+            'title' => $this->faker->sentence(6),
+            'content' => $this->faker->paragraphs(3, true),
+            'author' => '', // will be assigned in seeder
+            'category_id' => null, // will be assigned in seeder
+            'icon' => 'fas fa-file-alt', // optional icon field if used
         ];
     }
 }

@@ -27,6 +27,16 @@
             </div>
 
             <div class="mb-3">
+                <label class="form-label">Category</label>
+                <select name="category_id" class="form-select">
+                    <option value="">-- Select Category --</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="mb-3">
                 <label class="form-label">Icon (FontAwesome)</label>
                 <select name="icon" class="form-select">
                     <option value="fas fa-star">⭐ Star</option>
